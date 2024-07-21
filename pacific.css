@@ -12,12 +12,6 @@ body {
 #wrapper {
   background-color: #90c7e3; /*bgc#fff*/
   background-image: linear-gradient(to bottom, #fff, #90c7e3);
-  border: 1px solid #003; /*bd1-solid-#003 */
-  box-shadow: 3px 3px 3px #333; /*bxsd*/
-  margin: auto; /*m:a;*/
-  min-width: 960px; /*mw960*/
-  max-width: 2048px; /*maw 2048*/
-  width: 80%; /*w 80%*/
 }
 
 header {
@@ -27,8 +21,8 @@ header {
   background-repeat: no-repeat; /*bgr*/
   background-size: contain;
   color: #fff;
-  height: 120px; /*h60*/
-  padding-top: 30px; /*pt15*/
+  /* height: 120px; h60 */
+  /* padding-top: 30px; pt15 */
   text-align: center; /*tac*/
 } /*c#fff*/
 header a {
@@ -42,11 +36,10 @@ header a:hover {
   color: #90c7e3; /*c#90C7E3*/
 }
 nav {
-  float: left; /*fl*/
   /* font-size: 120%; fz120% */
   font-weight: bold; /*fwb*/
-  padding: 1.5em 0.5em; /*p1em*/
-  width: 160px; /*w160*/
+  padding: 0; /*p1em*/
+  text-align: center; /*tac*/
 }
 
 nav ul {
@@ -54,6 +47,9 @@ nav ul {
   margin: 0; /*m0*/
   padding-left: 0; /*pl0*/
   font-size: 1.2em; /*fz1.2em*/
+}
+nav li {
+  border-bottom: 1px solid #002171; /*bdb*/
 }
 nav a {
   text-decoration: none; /*txd*/
@@ -69,22 +65,17 @@ nav a:hover {
 }
 main {
   background-color: #fff; /*bgc#fff*/
-  margin-left: 190px; /*ml190*/
+
   padding: 1px 20px 20px 30px; /*p1-20-20-30*/
   display: block;
   overflow: auto; /*ova*/
 }
-section {
-  float: left; /*fl*/
-  padding-left: 2em; /*pl2em*/
-  padding-right: 2em; /*pr2em*/
-  width: 33%; /*w33%*/
-}
+
 h1 {
-  font-size: 3em; /*fz3em*/
+  /* font-size: 3em; fz3em */
   letter-spacing: 0.25em; /*lts.25*/
-  margin-bottom: 0; /*mb0*/
-  margin-top: 0; /*mt0*/
+  margin-bottom: 0.5em; /*mb0*/
+  margin-top: 0.5em; /*mt0*/
 }
 h1,
 h2,
@@ -106,7 +97,7 @@ footer {
   background-color: #fff;
   font-size: 75%; /*fz75%*/
   font-style: italic; /*fsi*/
-  margin-left: 190px; /*ml190*/
+
   padding: 2em; /*p2em*/
   text-align: center; /*txa center*/
 }
@@ -122,7 +113,6 @@ footer {
   background-repeat: no-repeat; /*bgr*/
   background-size: 100% 100%; /*bgz100%100%*/
   height: 300px;
-  margin-left: 190px; /*ml190*/
 }
 
 #yurthero {
@@ -130,12 +120,77 @@ footer {
   background-repeat: no-repeat; /*bgr*/
   background-size: 100% 100%; /*bgz100%100%*/
   height: 300px;
-  margin-left: 190px; /*ml190*/
 }
 #trailhero {
   background-image: url(images/trail.jpg); /*bgi*/
   background-repeat: no-repeat; /*bgr*/
   background-size: 100% 100%; /*bgz100%100%*/
   height: 300px;
-  margin-left: 190px; /*ml190*/
+}
+@media (max-width: 420px) {
+  header {
+    background-image: none;
+  }
+}
+@media (min-width: 600px) {
+  nav ul {
+    display: flex; /*df*/
+    flex-direction: row; /*fdr*/
+    flex-wrap: nowrap; /*fw*/
+    justify-content: space-around; /*jsc*/
+  }
+  nav li {
+    border-bottom: none; /*bbn*/
+  }
+  .flow {
+    display: flex; /*df*/
+    flex-direction: row; /*fdr*/
+  }
+  section {
+    flex: 1; /*fx1*/
+    margin-right: 1em; /*mr1em*/
+  }
+}
+@media (min-width: 1024px) {
+  #wrapper {
+    margin: auto; /*m:a*/
+    width: 80%; /*w:80*/
+    border: 1px solid #002171; /*bd1-solid-#002171*/
+    box-shadow: 3px 3px 3px #002171;
+  }
+  nav {
+    text-align: left; /*ta:l*/
+    padding-left: 1em; /*pl1em*/
+  }
+  @supports (display: grid) {
+    nav ul {
+      flex-direction: column;
+      padding: 1em;
+    }
+    .hero {
+      grid-area: hero;
+    }
+    header {
+      grid-area: header;
+    }
+    nav {
+      grid-area: nav;
+    }
+    main {
+      grid-area: main;
+    }
+    footer {
+      grid-area: footer;
+    }
+
+    #wrapper {
+      display: grid;
+      grid-template:
+        "header header"
+        "nav main"
+        "nav hero"
+        "nav footer"
+        /180px 1fr;
+    }
+  }
 }
