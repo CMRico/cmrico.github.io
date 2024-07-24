@@ -21,6 +21,7 @@ header {
   background-repeat: no-repeat; /*bgr*/
   background-size: contain;
   color: #fff;
+  padding: 0.5em auto;
   /* height: 120px; h60 */
   /* padding-top: 30px; pt15 */
   text-align: center; /*tac*/
@@ -127,9 +128,80 @@ footer {
   background-size: 100% 100%; /*bgz100%100%*/
   height: 300px;
 }
-@media (max-width: 420px) {
+table {
+  border-bottom: 2px solid #1976d2;
+  border-collapse: separate;
+}
+th {
+  background-color: #1976d2;
+  color: #fff;
+}
+td,
+th {
+  padding: 0.5em;
+  /* border: 2px solid #39c; */
+}
+td {
+  text-align: center; /*tac*/
+}
+.text {
+  text-align: left; /*ta:l*/
+}
+tr:nth-last-of-type(odd) {
+  background-color: #ffcd6f; /*bgc#ffcd6f*/
+}
+
+@media (max-width: 600px) {
   header {
     background-image: none;
+  }
+  #homehero,
+  #yurthero,
+  #trailhero {
+    background-size: auto;
+  }
+  #special table {
+    display: block;
+    border-bottom: none;
+  }
+  #special td,
+  #special th {
+    display: block;
+  }
+  #special thead {
+    display: none;
+  }
+
+  td.package::before {
+    content: "Package:";
+  }
+  td.description::before {
+    content: "Description:";
+  }
+  td.nights::before {
+    content: "Nights:";
+  }
+  td.cost::before {
+    content: "Cost:";
+  }
+  td.package,
+  td.description,
+  td.nights,
+  td.cost {
+    padding-left: 35%;
+    position: relative;
+    text-align: left;
+    font-size: 4vw;
+  }
+  td::before {
+    position: absolute; /*ps:a*/
+    top: 10px; /*t6*/
+    left: 0.5em; /*l.5*/
+    font-weight: bold; /*fwb*/
+    color: #1976d2; /*c#*/
+  }
+  td:last-of-type {
+    border-bottom: 2px solid #1b69b2;
   }
 }
 @media (min-width: 600px) {
@@ -187,8 +259,8 @@ footer {
       display: grid;
       grid-template:
         "header header"
-        "nav main"
         "nav hero"
+        "nav main"
         "nav footer"
         /180px 1fr;
     }
