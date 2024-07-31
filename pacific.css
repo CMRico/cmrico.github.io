@@ -171,7 +171,7 @@ video {
 #gallery img {
   box-shadow: 10px 10px 10px #777;
   text-align: center;
-  width: 70%;
+  width: 100%;
 }
 @media (max-width: 600px) {
   header {
